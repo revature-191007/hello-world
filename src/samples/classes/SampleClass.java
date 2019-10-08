@@ -20,13 +20,13 @@ package samples.classes;
  * Requirements for a function to qualify as a constructor:
  * 		* Exactly the same name as the class.
  * 		* No return type at all (not even void)
- * 		* The first line of any contructor must be either:
+ * 		* The first line of any constructor must be either:
  * 			super(...);
  * 			this(...);
  * 			or else super() will implicitly be called at the first line.
  */
 public class SampleClass {
-	
+		
 	public static void main(String[] args) {
 		// Data type is first, in this case we will declare a variable
 		// with the type: SampleClass
