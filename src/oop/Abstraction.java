@@ -1,5 +1,7 @@
 package oop;
 
+import java.util.RandomAccess;
+
 /**
  * When designing we want to focus on how systems interact and not the details of
  * their functionality.
@@ -15,13 +17,24 @@ package oop;
  * 		Normal property definitions with classes. 
  * 		Methods can be concrete or optionally abstract - they have no implementation.
  *  
- *  2. interface
+ *  2. interface - Contract that stipulates that certain actions (methods) will be 
+ *  available for the consumers of that class. Methods in an interface are 
+ *  implicitly public and abstract. All fields defined on an interface are implicitly
+ *  (and required to be) public static final. With Java 8, interfaces allow for 'default'
+ *  methods, which are methods on an interface that have implementations. A class can
+ *  implement multiple interfaces, but can extend only one class. For this reason,
+ *  interfaces are often described using adjectives: Cloneable, Adaptable, ...
  *
  */
 public class Abstraction {
 	public static void main(String[] args) {
 		Car car = new Car();
-		car.move("Abby", "Ankorage");		
+		car.move("Abby", "Ankorage");
+		Catapult catapult = new Catapult();
+		catapult.move("boulder", "castle");
+		
+		Drinkable water = new Water();
+		water.drink();
 	}
 	
 }
@@ -38,4 +51,29 @@ class Car extends Transportation {
 	void move(String thing, String location) {
 		System.out.println("The car drives " + thing + " to " + location +".");
 	}
+}
+
+class Catapult extends Transportation {
+
+	@Override
+	void move(String thing, String location) {
+		System.out.println("The catapult launches " + thing + " into " + location + ".");
+	}	
+}
+
+interface Drinkable {
+	void drink();
+}
+
+/* classes IMPLEMENT interfaces */
+class Water implements Drinkable {
+	public void drink() {
+		System.out.println("Drinking water");
+	}
+}
+
+/* interfaces EXTEND interfaces */
+/* Interfaces can extend multiple interfaces */
+interface Swimmable extends Drinkable, RandomAccess {
+	void swim();
 }
