@@ -29,10 +29,10 @@ public class Polymorphism {
 		Feline feline = new Feline();
 		Feline cat = new HouseCat();
 		Feline lion = new Lion();
-		HouseCat hcat = new HouseCat();
-		cat = hcat;
+		HouseCat houseCat = new HouseCat();
+		cat = houseCat;
 		
-		Feline[] felines = {feline, cat, lion, hcat};
+		Feline[] felines = {feline, cat, lion, houseCat};
 		for (Feline f : felines) {
 			if(f instanceof HouseCat) {
 				// casting - telling the compiler to trust you
