@@ -106,8 +106,17 @@ public class LoopsExample {
 		
 	}
 	
+	static void forIncrementor() {
+		for(int i = 0; i < 10; ++i) {
+			if(i % 2 == 0) {
+				i++;
+			}
+			System.out.println(i);
+		}
+	}
+	
 	
 	public static void main(String[] args) {
-		enhancedForLoop();
+		forIncrementor();
 	}
 }
